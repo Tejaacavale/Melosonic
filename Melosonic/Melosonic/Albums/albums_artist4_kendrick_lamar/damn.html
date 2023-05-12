@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeloSonic</title>
+    <link rel="shortcut icon" href="Images/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica:wght@500&display=swap" rel="stylesheet">
+    <link rel="precośnnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+</head>
+<style>
+    html {
+        height: 100%;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+
+    .content1 {
+        flex-grow: 1;
+    }
+
+    .footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #008080;
+        color: white;
+        text-align: left;
+        padding: 10px;
+        margin-top: 5vh;
+    }
+
+    .footer p {
+        margin: 0;
+    }
+
+    .footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    body {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Finlandica', sans-serif;
+        background-color: rgb(20, 20, 30);
+        overflow-x: hidden;
+        /* margin-right: 1vw; */
+        color: white;
+    }
+
+    /*  
+    body::before {
+        content: '';
+         background: url('https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60') no-repeat center center/cover;
+        background: url('https://images.unsplash.com/photo-1486520299386-6d106b22014b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+        background: url('bgpage5.avif') no-repeat center center/cover;
+        
+        background: url('Images/backgnd1.jpg');
+
+
+        opacity: 0.7;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }  */
+
+    header {
+        position: fixed;
+        width: 100vw;
+        z-index: 9999;
+        background-color: black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .logodiv {
+        display: inline-block;
+
+    }
+
+    .logo {
+        margin-top: 0.4249vh;
+        /* border: 2px solid    pink; */
+        box-sizing: content-box;
+        height: 9.3484vh;
+        width: auto;
+        /* filter: invert(100%); */
+        float: left;
+
+    }
+
+    .logo_name {
+        /* border: 2px yellow solid; */
+        font-family: 'Delicious Handrawn', cursive;
+        font-size: 4.2492vh;
+        text-align: center;
+        margin: 1.4164vh;
+        margin-left: 4.2492vh;
+        padding-top: 0.7082vh;
+    }
+
+    nav {
+        display: flex;
+        padding: 0vh;
+        /* border: 2px solid green; */
+        width: 69.8vw;
+        /* float:right; */
+
+
+
+    }
+
+    .navbar {
+        /* border: 2px solid yellow; */
+        margin-left: 14.1643vh;
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        /* padding-bottom:0px; */
+
+    }
+
+    nav ul li {
+        margin: 1.4164vh 0vh;
+        /* margin-top: 12px; */
+        text-align: center;
+        /* line-height: 2; */
+        /* width: 43vw; */
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 2.8328vh 2.6657vh;
+        transition: 0.3s;
+
+    }
+
+    /*     nav ul li a:hover {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 20px 40px;
+        background-color: rgb(45, 45, 45);
+    } */
+
+    #currentpage_in_the_navbar {
+        border-top: 0.2vh solid rgb(117, 117, 117);
+        border-bottom: 0.2vh solid rgb(117, 117, 117);
+    }
+
+    #right {
+        display: inline-block;
+        /* border: 2px solid yellow; */
+        padding: 2.8328vh 5.6657vh;
+        margin-top: 0.8498vh;
+    }
+
+    #login {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+    }
+
+    #login:hover {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+        background-color: rgb(0, 153, 255);
+    }
+
+    #signup {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+
+        text-decoration: none;
+        margin: 1.4164vh;
+
+    }
+
+    #signup:hover {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+
+        background-color: rgb(0, 153, 255);
+    }
+
+    body {
+        color: white;
+        font: 2.2662vh;
+    }
+
+    .albumspage_toppart {
+        background-color: #1b1d1f;
+        height: 22vh;
+        width: 97vw;
+        display: flex;
+        /* position: absolute; */
+        margin: 12vh 1vw 0vh 1vw;
+
+        /* margin-bottom: 2.5vh; */
+        align-items: center;
+        justify-content: center;
+
+        line-height: 1.5;
+
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 1vh;
+        /* border:2px blue solid; */
+        padding: 1vh;
+    }
+
+    /* Style for the album image */
+    .album-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+        width: 21.2464vh;
+        height: 21.2464vh;
+        border-radius: 50%;
+        margin-right: 2.832vh;
+    }
+
+    .albumspage_toppart:hover .album-image {
+        transform: scale(1.1);
+    }
+
+    /* Style for the album title */
+    .album-title {
+        position: relative;
+        font-size: 2em;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1vh 1vh;
+        /* background-color: rgba(0, 0, 0, 0.5); */
+        /* margin-top: 40px; */
+        /* half of title height */
+        transition: transform 0.3s ease-in-out;
+
+        /* border: 2px solid yellow; */
+        margin: 2vh 0vh;
+    }
+
+    .albumspage_toppart:hover .album-title {
+        transform: translateY(-5px);
+    }
+
+    .albumspage_toppart:hover {
+        background-color: #161719;
+
+    }
+
+    .albumspage_bottompart {
+        /* position: absolute; */
+        width: 97vw;
+
+        margin-top: 5vh;
+        margin-left: 1vw;
+        margin-right: 1vw;
+
+    }
+
+    table {
+        /* display: block; */
+        margin-top: 1vh;
+        border-collapse: collapse;
+        width: 100%;
+        color: #fff;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    th {
+        background-color: #4CAF50;
+        /* green */
+        color: #fff;
+        padding: 2vh;
+        text-align: left;
+        border-bottom: 1px solid #333;
+    }
+
+    td {
+        padding: 1.4164vh;
+        text-align: left;
+        border-bottom: 0.14164vh solid #333;
+    }
+
+    th {
+        /* background-color: #202020; */
+        /* background-color: #17181a; */
+        background-color: #1b1b1b;
+
+        /* dark grey */
+        color: #fff;
+    }
+
+    .left_th {
+        border-top-left-radius: 2vh;
+        border-bottom-left-radius: 2vh;
+
+    }
+
+    .right_th {
+        border-top-right-radius: 2vh;
+        border-bottom-right-radius: 2vh;
+    }
+
+    tr:hover {
+        background-color: #202020;
+        /* grey */
+    }
+
+    tbody tr:last-child {
+        border-bottom: none;
+    }
+</style>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <img class="logo" src="../../Images/logo.jpg" alt="">
+                <div class="logo_name">MeloSonic</div>
+                <ul class="navbar">
+                    <li>
+                        <a href="../../homepage.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="../../artistspage.html">ARTISTS</a>
+                    </li>
+                    <li>
+                        <a id="currentpage_in_the_navbar" href="../../albumspage.html">ALBUMS</a>
+                    </li>
+                    <li>
+                        <a href="../../search.html">SEARCH</a>
+                    </li>
+                    <li>
+                        <a href="../../spotlight.html">SPOTLIGHT</a>
+                    </li>
+                    <li>
+                        <a href="../../about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="right">
+                <span>
+                    <a id="login" href="http://127.0.0.1:5000/playlist">Playlist</a>
+                </span>
+            </div>
+
+        </header>
+        <section class="albumspage_toppart">
+            <!-- Album image -->
+            <img class="album-image" src="../../Images/Kendrick Lamar/damn.jpeg" alt="img">
+
+            <!-- Album title -->
+            <div class="album-title">Kendrick Lamar - DAMN.</div>
+        </section>
+        <section class="albumspage_bottompart">
+            <table>
+                <tr>
+                    <th class="left_th">Track</th>
+                    <th class="right_th">Length</th>
+                </tr>
+                <tr>
+                    <td>BLOOD.</td>
+                    <td>1:58</td>
+                </tr>
+                <tr>
+                    <td>DNA.</td>
+                    <td>3:05</td>
+                </tr>
+                <tr>
+                    <td>YAH.</td>
+                    <td>2:40</td>
+                </tr>
+                <tr>
+                    <td>ELEMENT.</td>
+                    <td>3:28</td>
+                </tr>
+                <tr>
+                    <td>FEEL.</td>
+                    <td>3:35</td>
+                </tr>
+                <tr>
+                    <td>LOYALTY. (feat. Rihanna)</td>
+                    <td>3:47</td>
+                </tr>
+                <tr>
+                    <td>PRIDE.</td>
+                    <td>4:35</td>
+                </tr>
+                <tr>
+                    <td>HUMBLE.</td>
+                    <td>2:57</td>
+                </tr>
+                <tr>
+                    <td>LUST.</td>
+                    <td>5:08</td>
+                </tr>
+                <tr>
+                    <td>LOVE. (feat. Zacari)</td>
+                    <td>3:33</td>
+                </tr>
+                <tr>
+                    <td>XXX. (feat. U2)</td>
+                    <td>4:14</td>
+                </tr>
+                <tr>
+                    <td>FEAR.</td>
+                    <td>7:40</td>
+                </tr>
+                <tr>
+                    <td>GOD.</td>
+                    <td>4:09</td>
+                </tr>
+                <tr>
+                    <td>DUCKWORTH.</td>
+                    <td>4:08</td>
+                </tr>
+            </table>
+        </section>
+        <footer class="footer">
+            <a href="../../about.html">About Us</a>
+            <p>&copy; 2023</span> Melosonic. All rights reserved. No part of this website may be reproduced,
+                distributed, or
+                transmitted in any form or by any means, including photocopying, recording, or other electronic or
+                mechanical methods, without the prior written permission of the website owner.</p>
+        </footer>
+    </div>
+    <script src="../../script.js"></script>
+    <script>
+        async function addToPlaylist(name, duration) {
+            const albumTitle = document.querySelector(".album-title").textContent;
+            console.log(albumTitle);
+            const data = { name: name, duration: duration, artal: albumTitle }
+            data_string = JSON.stringify(data)
+            console.log(JSON.stringify(data_string))
+            try {
+                console.log("OK");
+                const response = await fetch('http://127.0.0.1:5000/add-to-playlist', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: data_string,
+                });
+                console.log("OK");
+
+                alert('Song added to playlist!');
+            } catch (error) {
+                console.error(error);
+                alert('Failed to add song to playlist.');
+            }
+        }
+    </script>
+</body>
+
+</html>

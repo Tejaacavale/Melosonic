@@ -1,0 +1,24 @@
+
+async function addToPlaylist(name, duration) {
+    const albumTitle = document.querySelector(".album-title").textContent;
+    console.log(albumTitle);
+    const data = { name: name, duration: duration, artal: albumTitle }
+    data_string = JSON.stringify(data)
+    console.log(JSON.stringify(data_string))
+    try {
+        console.log("OK");
+        const response = await fetch('http://127.0.0.1:5000/add-to-playlist', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: data_string,
+        });
+        console.log("OK");
+
+        alert('Song added to playlist!');
+    } catch (error) {
+        console.error(error);
+        alert('Failed to add song to playlist.');
+    }
+}

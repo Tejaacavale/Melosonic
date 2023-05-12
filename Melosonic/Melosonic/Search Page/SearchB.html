@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .grid-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+
+    button[type="submit"] {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 20px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="search-form">
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="search">
+    <label for="duration">Max Duration (in minutes):</label>
+    <input type="number" id="duration" name="duration" min="1" max="60">
+    <label for="explicit">Explicit:</label>
+    <input type="checkbox" id="explicit" name="explicit" value="No">
+    <label for="explicit">Cleaned</label>
+    <button type="submit">Search</button>
+    <input type="reset">
+  </form>
+  <div id="grid-container" class="grid-container"></div>
+
+  <script>
+    const searchForm = document.getElementById("search-form");
+    const clearFiltersButton = document.getElementById("clear-filters");
+    searchForm.addEventListener("submit", handleFormSubmit);
+    const durationInput = document.getElementById('duration');
+    const explicitCheckbox = document.getElementById('explicit');
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const searchTerm = document.getElementById("search").value.replace(" ", "+")
+      console.log(searchTerm);
+      const maxDuration = document.getElementById("duration").value;
+      const explicit = document.getElementById("explicit").checked;
+      let url = `https://itunes.apple.com/search?term=${searchTerm}&media=music&limit=10`;
+      console.log("md:", maxDuration);
+  
+      if (!maxDuration) {
+        if (explicit) {
+          console.log(explicit);
+          url += `&explicit=no`;
+        }
+        console.log(url);
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            const results = data.results;
+            const resultCount = data.resultCount;
+            const gridContainer = document.getElementById("grid-container");
+            gridContainer.innerHTML = "";
+            if (resultCount === 0) {
+              const message = document.createElement("p");
+              message.textContent = "No tracks found";
+              gridContainer.appendChild(message);
+              return;
+            }
+            for (let i = 0; i < resultCount; i++) {
+              const trackName = results[i].trackName;
+              const artistName = results[i].artistName;
+              const albumName = results[i].collectionName;
+              const albumPosterUrl = results[i].artworkUrl100;
+
+              const gridItem = document.createElement("div");
+              gridItem.classList.add("grid-item");
+
+              const trackNameElement = document.createElement("p");
+              trackNameElement.innerHTML = trackName;
+
+              const artistNameElement = document.createElement("p");
+              artistNameElement.innerHTML = artistName;
+
+              const albumNameElement = document.createElement("p");
+              albumNameElement.innerHTML = albumName;
+
+              const albumPosterElement = document.createElement("img");
+              albumPosterElement.src = albumPosterUrl;
+              albumPosterElement.alt = `Poster for ${albumName}`;
+
+              gridItem.appendChild(trackNameElement);
+              gridItem.appendChild(artistNameElement);
+              gridItem.appendChild(albumNameElement);
+              gridItem.appendChild(albumPosterElement);
+              if (results[i].audioClip !== null) {
+                const audioElement = document.createElement("audio");
+                audioElement.src = results[i].previewUrl;
+                audioElement.controls = true;
+                gridItem.appendChild(audioElement);
+              }
+
+              gridContainer.appendChild(gridItem);
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      }
+      if (maxDuration) {
+        let url = `https://itunes.apple.com/search?term=${searchTerm}&media=music`;
+        if (explicit) {
+          url += `&explicit=N`;
+        }
+        console.log("maxdur:"+ maxDuration);
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            const results = data.results;
+            const resultCount = data.resultCount;
+            const gridContainer = document.getElementById("grid-container");
+            gridContainer.innerHTML = "";
+            if (resultCount === 0) {
+              const message = document.createElement("p");
+              message.textContent = "No tracks found";
+              gridContainer.appendChild(message);
+              return;
+            }
+            var count = 0 ;
+            for ( let i = 0 ; i<resultCount; i++){
+              if(maxDuration*60*1000>results[i].trackTimeMillis){
+                count++;
+              
+              const trackName = results[i].trackName;
+              const artistName = results[i].artistName;
+              const albumName = results[i].collectionName;
+              const albumPosterUrl = results[i].artworkUrl100;
+
+              const gridItem = document.createElement("div");
+              gridItem.classList.add("grid-item");
+
+              const trackNameElement = document.createElement("p");
+              trackNameElement.innerHTML = trackName;
+
+              const artistNameElement = document.createElement("p");
+              artistNameElement.innerHTML = artistName;
+
+              const albumNameElement = document.createElement("p");
+              albumNameElement.innerHTML = albumName;
+
+              const albumPosterElement = document.createElement("img");
+              albumPosterElement.src = albumPosterUrl;
+              albumPosterElement.alt = `Poster for ${albumName}`;
+
+              gridItem.appendChild(trackNameElement);
+              gridItem.appendChild(artistNameElement);
+              gridItem.appendChild(albumNameElement);
+              gridItem.appendChild(albumPosterElement);
+              if (results[i].audioClip !== null) {
+                const audioElement = document.createElement("audio");
+                audioElement.src = results[i].previewUrl;
+                audioElement.controls = true;
+                gridItem.appendChild(audioElement);
+              }
+
+              gridContainer.appendChild(gridItem);
+            }
+              if(count==10){
+                break;
+              }
+            }
+            console.log("count:" + count);
+            if(count==0){
+              const message = document.createElement("p");
+              message.textContent = "No tracks found";
+              gridContainer.appendChild(message);
+              return;
+            }
+            if(count>10){
+              count = 10;
+            }
+            console.log(count)
+            let j = 0;
+            let i = 0;
+            // while(j<count && i<resultCount){
+            //   let p = 0;
+            //   if(maxDuration*60*1000>results[i].trackTimeMillis){
+            //     console.log("Here");
+            //   const trackName = results[i].trackName;
+            //   const artistName = results[i].artistName;
+            //   const albumName = results[i].collectionName;
+            //   const albumPosterUrl = results[i].artworkUrl100;
+
+            //   const gridItem = document.createElement("div");
+            //   gridItem.classList.add("grid-item");
+
+            //   const trackNameElement = document.createElement("p");
+            //   trackNameElement.innerHTML = trackName;
+
+            //   const artistNameElement = document.createElement("p");
+            //   artistNameElement.innerHTML = artistName;
+
+            //   const albumNameElement = document.createElement("p");
+            //   albumNameElement.innerHTML = albumName;
+
+            //   const albumPosterElement = document.createElement("img");
+            //   albumPosterElement.src = albumPosterUrl;
+            //   albumPosterElement.alt = `Poster for ${albumName}`;
+
+            //   gridItem.appendChild(trackNameElement);
+            //   gridItem.appendChild(artistNameElement);
+            //   gridItem.appendChild(albumNameElement);
+            //   gridItem.appendChild(albumPosterElement);
+            //   if (results[i].audioClip !== null) {
+            //     const audioElement = document.createElement("audio");
+            //     audioElement.src = results[i].previewUrl;
+            //     audioElement.controls = true;
+            //     gridItem.appendChild(audioElement);
+            //   }
+
+            //   gridContainer.appendChild(gridItem);
+            //   i++;
+            //   j++;
+            //   p=1;
+            // }
+            // if(p==0){
+            //   j++;
+            // }
+            // }
+          
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      }
+    }
+  </script>
+</body>
+
+</html>

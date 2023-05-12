@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeloSonic</title>
+    <link rel="shortcut icon" href="Images/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica:wght@500&display=swap" rel="stylesheet">
+    <link rel="precośnnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+</head>
+<style>
+    html {
+        height: 100%;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+
+    .content1 {
+        flex-grow: 1;
+    }
+
+    .footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #008080;
+        color: white;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .footer p {
+        margin: 0;
+    }
+
+    .footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    body {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Finlandica', sans-serif;
+        background-color: rgb(20, 20, 30);
+        overflow-x: hidden;
+        /* margin-right: 1vw; */
+        color: white;
+    }
+
+    /*  
+    body::before {
+        content: '';
+         background: url('https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60') no-repeat center center/cover;
+        background: url('https://images.unsplash.com/photo-1486520299386-6d106b22014b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+        background: url('bgpage5.avif') no-repeat center center/cover;
+        
+        background: url('Images/backgnd1.jpg');
+
+
+        opacity: 0.7;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }  */
+
+    header {
+        position: fixed;
+        width: 100vw;
+        z-index: 9999;
+        background-color: black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .logodiv {
+        display: inline-block;
+
+    }
+
+    .logo {
+        margin-top: 0.4249vh;
+        /* border: 2px solid    pink; */
+        box-sizing: content-box;
+        height: 9.3484vh;
+        width: auto;
+        /* filter: invert(100%); */
+        float: left;
+
+    }
+
+    .logo_name {
+        /* border: 2px yellow solid; */
+        font-family: 'Delicious Handrawn', cursive;
+        font-size: 4.2492vh;
+        text-align: center;
+        margin: 1.4164vh;
+        margin-left: 4.2492vh;
+        padding-top: 0.7082vh;
+    }
+
+    nav {
+        display: flex;
+        padding: 0vh;
+        /* border: 2px solid green; */
+        width: 69.8vw;
+        /* float:right; */
+
+
+
+    }
+
+    .navbar {
+        /* border: 2px solid yellow; */
+        margin-left: 14.1643vh;
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        /* padding-bottom:0px; */
+
+    }
+
+    nav ul li {
+        margin: 1.4164vh 0vh;
+        /* margin-top: 12px; */
+        text-align: center;
+        /* line-height: 2; */
+        /* width: 43vw; */
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 2.8328vh 2.6657vh;
+        transition: 0.3s;
+
+    }
+
+    /*   nav ul li a:hover {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 20px 40px;
+        background-color: rgb(45, 45, 45);
+    } */
+
+    #currentpage_in_the_navbar {
+        border-top: 0.2vh solid rgb(117, 117, 117);
+        border-bottom: 0.2vh solid rgb(117, 117, 117);
+    }
+
+    #right {
+        display: inline-block;
+        /* border: 2px solid yellow; */
+        padding: 2.8328vh 5.6657vh;
+        margin-top: 0.8498vh;
+    }
+
+    #login {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+    }
+
+    #login:hover {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+        background-color: rgb(0, 153, 255);
+    }
+
+    #signup {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+
+        text-decoration: none;
+        margin: 1.4164vh;
+
+    }
+
+    #signup:hover {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+
+        background-color: rgb(0, 153, 255);
+    }
+
+
+    .albumspage_toppart {
+        background-color: #24272a;
+        height: 50vh;
+        width: 100vw;
+        display: flex;
+        /* position: absolute; */
+        margin-top: 8.875vh;
+        /* padding-left: 10vw; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.5;
+
+        /* border: 2px pink solid; */
+
+    }
+
+    .albumspage_toppart_image {
+        width: 30%;
+        /* border: 2px solid red; */
+    }
+
+    .albumspage_toppart_image img {
+        height: 35vh;
+        width: 35vh;
+        border: 0.2vh black solid;
+        border-radius: 25vh;
+
+    }
+
+    .albumspage_toppart_writing {
+        /* border: 2px blue solid; */
+        width: 60%;
+
+
+    }
+
+    .albumspage_heading {
+        font-size: 6vh;
+        height: 7vh;
+        width: 30vw;
+        /* border: 2px solid red; */
+
+        font-family: 'Courier New', Courier, monospace;
+        /* text-decoration: underline; */
+    }
+
+    .albumspage_toppart_writing div {
+        /* border: 2px solid red; */
+        margin-top: 2vh;
+    }
+
+    .albumspage_bottompart {
+        /* position: absolute; */
+        margin-top: 5vh;
+        /* height: 140vh; */
+        width: 100vw;
+        /* border: 2px blue solid; */
+        background-color: #24272a9e;
+        /* padding:10vh; */
+    }
+
+    .albumspage_bottompart div {
+        /* border: 2px red solid; */
+        font-size: 4.5vh;
+        padding: 3vh 3vw 1vh 2vw;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2vh;
+        /* row-gap:vh; */
+        width: min-content;
+    }
+
+    .item {
+        background-color: #ccc;
+        /* border: 2px red solid; */
+        /* padding: 20px; */
+        width: 23vw;
+        height: 62vh;
+        /* align-items: center; */
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+    }
+
+    .album_image {
+        height: 20vw;
+        width: 20vw;
+        margin-top: 1.7vw;
+    }
+
+    .item:hover {
+        border-color: rgba(0, 0, 0, 0.15);
+        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+        color: rgba(0, 0, 0, 0.65);
+        transform: translateY(-1vh);
+    }
+
+
+
+
+    .item div {
+        color: black;
+        font-size: 4vh;
+
+        /* border:2px red solid; */
+    }
+
+    .item sup {
+        color: black;
+        font-size: 2.5vh;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <img class="logo" src="../Images/logo.jpg" alt="">
+                <div class="logo_name">MeloSonic</div>
+                <ul class="navbar">
+                    <li>
+                        <a href="../homepage.html">HOME</a>
+                    </li>
+                    <li>
+                        <a id="currentpage_in_the_navbar" href="../artistspage.html">ARTISTS</a>
+                    </li>
+                    <li>
+                        <a href="../albumspage.html">ALBUMS</a>
+                    </li>
+                    <li>
+                        <a href="../search.html">SEARCH</a>
+                    </li>
+                    <li>
+                        <a href="../spotlight.html">SPOTLIGHT</a>
+                    </li>
+                    <li>
+                        <a href="../about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="right">
+                <span>
+                    <a id="login" href="http://127.0.0.1:5000/playlist">Playlist</a>
+                </span>
+            </div>
+        </header>
+
+        <section class="albumspage_toppart">
+            <section class="albumspage_toppart_image">
+                <img src="../Images//pinkfloyd.jpeg" alt="img">
+            </section>
+            <section class="albumspage_toppart_writing">
+                <span class="albumspage_heading">Pink Floyd</span>
+                <div>
+                    Pink Floyd is a British rock band formed in 1965. The band, known for their iconic music,
+                    experimental soundscapes, and psychedelic imagery, revolutionized the music industry and left an
+                    indelible mark on generations of fans. With classic albums like "The Dark Side of the Moon," "Wish
+                    You Were Here," and "The Wall," Pink Floyd is widely considered one of the greatest, if not the
+                    greatest, rock bands of all time.
+                </div>
+            </section>
+        </section>
+
+        <section class="albumspage_bottompart">
+            <div>Top Albums</div>
+
+            <div class="grid">
+                <a href="../Albums/albums_artist1_pink_floyd/the_division_bell.html" class="item">
+                    <img src="../Images/Pink Floyd/the_division_bell.jpeg" alt="img" class="album_image">
+                    <div>
+                        The Division Bell
+                    </div>
+                    <sup>1994, 11 tracks</sup>
+                </a>
+                <a href="../Albums/albums_artist1_pink_floyd/the_wall.html" class="item">
+                    <img src="../Images/Pink Floyd/the_wall.jpeg" alt="img" class="album_image">
+                    <div>
+                        The Wall
+
+                    </div>
+                    <sup>1979, 26 tracks</sup>
+                </a>
+                <a href="../Albums/albums_artist1_pink_floyd/animals.html" class="item">
+                    <img src="../Images/Pink Floyd/animals.jpeg" alt="img" class="album_image">
+                    <div>
+                        Animals
+
+                    </div>
+                    <sup>1977, 5 tracks</sup>
+                </a>
+                <a href="../Albums/albums_artist1_pink_floyd/wish_you_were_here.html" class="item">
+                    <img src="../Images/Pink Floyd/wish_you_were_here.jpeg" alt="img" class="album_image">
+                    <div>
+                        Wish You Were Here
+
+                    </div>
+                    <sup>1975, 5 tracks</sup>
+                </a>
+                <a href="../Albums/albums_artist1_pink_floyd/the_dark_side_of_the_moon.html" class="item">
+                    <img src="../Images/Pink Floyd/the_dark_side_of_the_moon.jpeg" alt="img" class="album_image">
+                    <div class="div_inside_item">
+                        The Dark Side of the Moon
+
+                    </div>
+                    <sup>1973, 10 tracks</sup>
+                </a>
+                <a href="../Albums/albums_artist1_pink_floyd/meddle.html" class="item">
+                    <img src="../Images/Pink Floyd/meddle.jpeg" alt="img" class="album_image">
+                    <div>
+                        Meddle
+                    </div>
+                    <sup>1971, 6 tracks</sup>
+                </a>
+
+            </div>
+
+        </section>
+        <footer class="footer">
+            <a href="../about.html">About Us</a>
+            <p>&copy; 2023</span> Melosonic. All rights reserved. No part of this website may be reproduced,
+                distributed, or
+                transmitted in any form or by any means, including photocopying, recording, or other electronic or
+                mechanical methods, without the prior written permission of the website owner.</p>
+        </footer>
+    </div>
+
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

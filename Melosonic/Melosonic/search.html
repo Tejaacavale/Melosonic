@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeloSonic</title>
+    <link rel="shortcut icon" href="Images/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica:wght@500&display=swap" rel="stylesheet">
+    <link rel="precośnnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Finlandica', sans-serif;
+        /* background-color: rgb(20, 20, 30); */
+        background-color: #24272a;
+        height: auto !important;
+        overflow-x: hidden;
+        /* margin-right: 1vw; */
+        color: white;
+    }
+
+    /*  
+    body::before {
+        content: '';
+         background: url('https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60') no-repeat center center/cover;
+        background: url('https://images.unsplash.com/photo-1486520299386-6d106b22014b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+        background: url('bgpage5.avif') no-repeat center center/cover;
+       
+        background: url('Images/backgnd1.jpg');
+
+
+        opacity: 0.7;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }  */
+    html {
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 87vh;
+    }
+
+    .content1 {
+        flex-grow: 1;
+    }
+
+    header {
+        position: fixed;
+        width: 100vw;
+        z-index: 9999;
+        background-color: black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .logodiv {
+        display: inline-block;
+
+    }
+
+    .logo {
+        margin-top: 0.4249vh;
+        /* border: 2px solid    pink; */
+        box-sizing: content-box;
+        height: 9.3484vh;
+        width: auto;
+        /* filter: invert(100%); */
+        float: left;
+
+    }
+
+    .logo_name {
+        /* border: 2px yellow solid; */
+        font-family: 'Delicious Handrawn', cursive;
+        font-size: 4.2492vh;
+        text-align: center;
+        margin: 1.4164vh;
+        margin-left: 4.2492vh;
+        padding-top: 0.7082vh;
+    }
+
+    nav {
+        display: flex;
+        padding: 0vh;
+        /* border: 2px solid green; */
+        width: 69.8vw;
+        /* float:right; */
+
+
+
+    }
+
+    .navbar {
+        /* border: 2px solid yellow; */
+        margin-left: 14.1643vh;
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        /* padding-bottom:0px; */
+
+    }
+
+    nav ul li {
+        margin: 1.4164vh 0vh;
+        /* margin-top: 12px; */
+        text-align: center;
+        /* line-height: 2; */
+        /* width: 43vw; */
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 2.8328vh 2.6657vh;
+        transition: 0.3s;
+
+    }
+
+    /*     nav ul li a:hover {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 20px 40px;
+        background-color: rgb(45, 45, 45);
+    } */
+
+    #currentpage_in_the_navbar {
+        border-top: 0.2vh solid rgb(117, 117, 117);
+        border-bottom: 0.2vh solid rgb(117, 117, 117);
+    }
+
+    #right {
+        display: inline-block;
+        /* border: 2px solid yellow; */
+        padding: 2.8328vh 5.6657vh;
+        margin-top: 0.8498vh;
+    }
+
+    #login {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+    }
+
+    #login:hover {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+        background-color: rgb(0, 153, 255);
+    }
+
+    #signup {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+
+        text-decoration: none;
+        margin: 1.4164vh;
+
+    }
+
+    #signup:hover {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+
+        background-color: rgb(0, 153, 255);
+    }
+
+
+    .searchpage_toppart_top_albums {
+        background-color: #24272a;
+        height: 10vh;
+        width: 100vw;
+        display: flex;
+        /* position: absolute; */
+        margin-top: 15.0566vh;
+
+        /* padding-left: 10vw; */
+        align-items: center;
+        justify-content: center;
+
+        line-height: 1.5;
+        /* border: 2px solid blue; */
+
+    }
+
+    .searchpage_heading_top_albums {
+        font-size: 6vh;
+        height: 7vh;
+        width: 30vw;
+        /* border: 2px solid red; */
+        font-family: 'Courier New', Courier, monospace;
+        /* text-decoration: underline; */
+
+    }
+
+    .searchpage_bottompart_top_albums {
+        /* border: 2px green solid; */
+        /* height: 100vh; */
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        /* position: absolute; */
+        margin-top: 5vh;
+        padding: 3vh 3vw 1vh 2vw;
+        margin-bottom: 100px;
+
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2vh;
+        /* row-gap:vh; */
+        width: min-content;
+        border: 2px solid red;
+
+        padding: 3vh 3vw 1vh 2vw
+    }
+
+    .item {
+        background-color: #ccc;
+        /* border: 2px red solid; */
+        /* padding: 20px; */
+
+        width: 23vw;
+        height: 62vh;
+        /* align-items: center; */
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .album_image {
+        height: 20vw;
+        width: 20vw;
+        margin-top: 1.7vw;
+    }
+
+    .item:hover {
+        border-color: rgba(0, 0, 0, 0.15);
+        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+        color: rgba(0, 0, 0, 0.65);
+        transform: translateY(-1vh);
+    }
+
+
+
+
+    .item div {
+        color: black;
+        font-size: 4vh;
+
+        border: 2px red solid;
+    }
+
+    .grid-container {
+        /*  display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 20px; */
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2vh;
+        /* row-gap:vh; */
+        width: min-content;
+        margin: 4vh;
+    }
+
+    .grid-item {
+
+        background-color: #ccc;
+        color: black;
+        height: 62vh;
+        width: 23vw;
+
+        /* padding: 10px; */
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .grid-item img {
+        height: 20vw;
+        width: 20vw;
+        margin: auto;
+        margin-top: 1.7vw;
+    }
+
+    .grid-item p {
+        font-family: 'Finlandica', sans-serif;
+        /* border: 2px solid red; */
+        margin: 0.5vh 0.5vw;
+    }
+
+    audio {
+
+        background-color: #f1eded;
+        height: 7.64872521246vh;
+        width: 23.0414746544vw;
+
+    }
+
+
+
+    .footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #008080;
+        color: white;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .footer p {
+        margin: 0;
+    }
+
+    .footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    .item sub {
+        color: black;
+        font-size: 2.5vh;
+    }
+
+    /*CSS FOR BUTTONS */
+    .button-16 {
+        background-color: #f8f9fa;
+        border: 1px solid #f8f9fa;
+        border-radius: 4px;
+        color: #3c4043;
+        cursor: pointer;
+        /* font-family: arial,sans-serif; */
+        font-family: 'Finlandica', sans-serif;
+
+        /* font-size: 14px; */
+        height: 3.8vh;
+        /* line-height: 0px; */
+        min-width: 54px;
+        padding: 0 3vw;
+        text-align: center;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: pre;
+    }
+
+    .button-16:hover {
+        border-color: #dadce0;
+        box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+        color: #202124;
+    }
+
+    .button-16:focus {
+        border-color: #4285f4;
+        outline: none;
+    }
+
+    /*CSS FOR BUTTONS */
+
+    #search {
+        /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+        border-radius: 0.8vh;
+    }
+
+    #duration {
+        border-radius: 0.8vh;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <img class="logo" src="Images/logo.jpg" alt="">
+                <div class="logo_name">MeloSonic</div>
+                <ul class="navbar">
+                    <li>
+                        <a href="homepage.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="artistspage.html">ARTISTS</a>
+                    </li>
+                    <li>
+                        <a href="albumspage.html">ALBUMS</a>
+                    </li>
+                    <li>
+                        <a id="currentpage_in_the_navbar" href="search.html">SEARCH</a>
+                    </li>
+                    <li>
+                        <a href="spotlight.html">SPOTLIGHT</a>
+                    </li>
+                    <li>
+                        <a href="about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="right">
+                <span>
+                    <a id="login" href="http://127.0.0.1:5000/playlist">Playlist</a>
+                </span>
+            </div>
+        </header>
+
+        <section class="searchpage_toppart_top_albums">
+            <span class="searchpage_heading_top_albums">SEARCH</span>
+        </section>
+
+
+        <form id="search-form" class="searchpage_bottompart_top_albums">
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="search">
+            <label for="duration">Max Duration (in minutes):</label>
+            <input type="number" id="duration" name="duration" min="1" max="60">
+            <label for="explicit">Explicit:</label>
+            <input type="checkbox" id="explicit" name="explicit" value="No">
+            <label for="explicit">Cleaned</label>
+            <button class="button-16" type="submit">Search</button>
+            <input class="button-16" type="reset">
+        </form>
+
+        <section id="grid-container" class="grid-container"></section>
+
+        <script>
+            const searchForm = document.getElementById("search-form");
+            const clearFiltersButton = document.getElementById("clear-filters");
+            searchForm.addEventListener("submit", handleFormSubmit);
+            const durationInput = document.getElementById('duration');
+            const explicitCheckbox = document.getElementById('explicit');
+
+            function handleFormSubmit(e) {
+                e.preventDefault();
+                const searchTerm = document.getElementById("search").value.replace(" ", "+")
+                console.log(searchTerm);
+                const maxDuration = document.getElementById("duration").value;
+                const explicit = document.getElementById("explicit").checked;
+                let url = `https://itunes.apple.com/search?term=${searchTerm}&media=music&limit=10`;
+                console.log("md:", maxDuration);
+
+                if (!maxDuration) {
+                    if (explicit) {
+                        console.log(explicit);
+                        url += `&explicit=no`;
+                    }
+                    console.log(url);
+                    fetch(url)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            const results = data.results;
+                            const resultCount = data.resultCount;
+                            const gridContainer = document.getElementById("grid-container");
+                            gridContainer.innerHTML = "";
+                            if (resultCount === 0) {
+                                const message = document.createElement("p");
+                                message.textContent = "No tracks found";
+                                gridContainer.appendChild(message);
+                                return;
+                            }
+                            for (let i = 0; i < resultCount; i++) {
+                                const trackName = results[i].trackName;
+                                const artistName = results[i].artistName;
+                                const albumName = results[i].collectionName;
+                                const albumPosterUrl = results[i].artworkUrl100;
+
+                                const gridItem = document.createElement("div");
+                                gridItem.classList.add("grid-item");
+
+                                const albumPosterElement = document.createElement("img");
+                                albumPosterElement.src = albumPosterUrl;
+                                albumPosterElement.alt = `Poster for ${albumName}`;
+
+                                const trackNameElement = document.createElement("p");
+                                trackNameElement.innerHTML = trackName;
+
+                                const artistNameElement = document.createElement("p");
+                                artistNameElement.innerHTML = artistName;
+
+                                const albumNameElement = document.createElement("p");
+                                albumNameElement.innerHTML = albumName;
+
+                                gridItem.appendChild(albumPosterElement);
+                                gridItem.appendChild(trackNameElement);
+                                gridItem.appendChild(artistNameElement);
+                                gridItem.appendChild(albumNameElement);
+                                if (results[i].audioClip !== null) {
+                                    const audioElement = document.createElement("audio");
+                                    audioElement.src = results[i].previewUrl;
+                                    audioElement.controls = true;
+                                    gridItem.appendChild(audioElement);
+                                }
+
+                                gridContainer.appendChild(gridItem);
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Error fetching data:", error);
+                        });
+                }
+                if (maxDuration) {
+                    let url = `https://itunes.apple.com/search?term=${searchTerm}&media=music`;
+                    if (explicit) {
+                        url += `&explicit=N`;
+                    }
+                    console.log("maxdur:" + maxDuration);
+                    fetch(url)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            const results = data.results;
+                            const resultCount = data.resultCount;
+                            const gridContainer = document.getElementById("grid-container");
+                            gridContainer.innerHTML = "";
+                            if (resultCount === 0) {
+                                const message = document.createElement("p");
+                                message.textContent = "No tracks found";
+                                gridContainer.appendChild(message);
+                                return;
+                            }
+                            var count = 0;
+                            for (let i = 0; i < resultCount; i++) {
+                                if (maxDuration * 60 * 1000 > results[i].trackTimeMillis) {
+                                    count++;
+
+                                    const trackName = results[i].trackName;
+                                    const artistName = results[i].artistName;
+                                    const albumName = results[i].collectionName;
+                                    const albumPosterUrl = results[i].artworkUrl100;
+
+                                    const gridItem = document.createElement("div");
+                                    gridItem.classList.add("grid-item");
+
+                                    const trackNameElement = document.createElement("p");
+                                    trackNameElement.innerHTML = trackName;
+
+                                    const artistNameElement = document.createElement("p");
+                                    artistNameElement.innerHTML = artistName;
+
+                                    const albumNameElement = document.createElement("p");
+                                    albumNameElement.innerHTML = albumName;
+
+                                    const albumPosterElement = document.createElement("img");
+                                    albumPosterElement.src = albumPosterUrl;
+                                    albumPosterElement.alt = `Poster for ${albumName}`;
+
+                                    gridItem.appendChild(trackNameElement);
+                                    gridItem.appendChild(artistNameElement);
+                                    gridItem.appendChild(albumNameElement);
+                                    gridItem.appendChild(albumPosterElement);
+
+                                    if (results[i].audioClip !== null) {
+                                        const audioElement = document.createElement("audio");
+                                        audioElement.src = results[i].previewUrl;
+                                        audioElement.controls = true;
+                                        gridItem.appendChild(audioElement);
+                                    }
+
+                                    gridContainer.appendChild(gridItem);
+                                }
+                                if (count == 10) {
+                                    break;
+                                }
+                            }
+                            console.log("count:" + count);
+                            if (count == 0) {
+                                const message = document.createElement("p");
+                                message.textContent = "No tracks found";
+                                gridContainer.appendChild(message);
+                                return;
+                            }
+                            if (count > 10) {
+                                count = 10;
+                            }
+                            console.log(count)
+                            let j = 0;
+                            let i = 0;
+                            // while(j<count && i<resultCount){
+                            //   let p = 0;
+                            //   if(maxDuration*60*1000>results[i].trackTimeMillis){
+                            //     console.log("Here");
+                            //   const trackName = results[i].trackName;
+                            //   const artistName = results[i].artistName;
+                            //   const albumName = results[i].collectionName;
+                            //   const albumPosterUrl = results[i].artworkUrl100;
+
+                            //   const gridItem = document.createElement("div");
+                            //   gridItem.classList.add("grid-item");
+
+                            //   const trackNameElement = document.createElement("p");
+                            //   trackNameElement.innerHTML = trackName;
+
+                            //   const artistNameElement = document.createElement("p");
+                            //   artistNameElement.innerHTML = artistName;
+
+                            //   const albumNameElement = document.createElement("p");
+                            //   albumNameElement.innerHTML = albumName;
+
+                            //   const albumPosterElement = document.createElement("img");
+                            //   albumPosterElement.src = albumPosterUrl;
+                            //   albumPosterElement.alt = `Poster for ${albumName}`;
+
+                            //   gridItem.appendChild(trackNameElement);
+                            //   gridItem.appendChild(artistNameElement);
+                            //   gridItem.appendChild(albumNameElement);
+                            //   gridItem.appendChild(albumPosterElement);
+                            //   if (results[i].audioClip !== null) {
+                            //     const audioElement = document.createElement("audio");
+                            //     audioElement.src = results[i].previewUrl;
+                            //     audioElement.controls = true;
+                            //     gridItem.appendChild(audioElement);
+                            //   }
+
+                            //   gridContainer.appendChild(gridItem);
+                            //   i++;
+                            //   j++;
+                            //   p=1;
+                            // }
+                            // if(p==0){
+                            //   j++;
+                            // }
+                            // }
+
+                        })
+                        .catch((error) => {
+                            console.error("Error fetching data:", error);
+                        });
+                }
+            }
+        </script>
+
+    </div>
+    <footer class="footer">
+        <a href="about.html">About Us</a>
+        <p>&copy; 2023</span> Melosonic. All rights reserved. No part of this website may be reproduced, distributed, or
+            transmitted in any form or by any means, including photocopying, recording, or other electronic or
+            mechanical methods, without the prior written permission of the website owner.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeloSonic</title>
+    <link rel="shortcut icon" href="Images/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica:wght@500&display=swap" rel="stylesheet">
+    <link rel="precośnnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Finlandica', sans-serif;
+        background-color: rgb(20, 20, 30);
+        overflow-x: hidden;
+        /* margin-right: 1vw; */
+        color: white;
+        height: 100%;
+        
+    }
+
+    /*  
+    body::before {
+        content: '';
+         background: url('https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60') no-repeat center center/cover;
+        background: url('https://images.unsplash.com/photo-1486520299386-6d106b22014b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+        background: url('bgpage5.avif') no-repeat center center/cover;
+        
+        background: url('Images/backgnd1.jpg');
+
+
+        opacity: 0.7;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }  */
+
+    header {
+        position: fixed;
+        width: 100vw;
+        z-index: 9999;
+        background-color: black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .logodiv {
+        display: inline-block;
+
+    }
+
+    .logo {
+        margin-top: 0.4249vh;
+        /* border: 2px solid    pink; */
+        box-sizing: content-box;
+        height: 9.3484vh;
+        width: auto;
+        /* filter: invert(100%); */
+        float: left;
+
+    }
+
+    .logo_name {
+        /* border: 2px yellow solid; */
+        font-family: 'Delicious Handrawn', cursive;
+        font-size: 4.2492vh;
+        text-align: center;
+        margin: 1.4164vh;
+        margin-left: 4.2492vh;
+        padding-top: 0.7082vh;
+    }
+
+    nav {
+        display: flex;
+        padding: 0vh;
+        /* border: 2px solid green; */
+        width: 69.8vw;
+        /* float:right; */
+
+
+
+    }
+
+    .navbar {
+        /* border: 2px solid yellow; */
+        margin-left: 14.1643vh;
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        /* padding-bottom:0px; */
+
+    }
+
+    nav ul li {
+        margin: 1.4164vh 0vh;
+        /* margin-top: 12px; */
+        text-align: center;
+        /* line-height: 2; */
+        /* width: 43vw; */
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 2.8328vh 2.6657vh;
+        transition: 0.3s;
+
+    }
+
+    /*     nav ul li a:hover {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 20px 40px;
+        background-color: rgb(45, 45, 45);
+    } */
+
+    #currentpage_in_the_navbar {
+        border-top: 0.2vh solid rgb(117, 117, 117);
+        border-bottom: 0.2vh solid rgb(117, 117, 117);
+    }
+
+
+    #right {
+        display: inline-block;
+        /* border: 2px solid yellow; */
+        padding: 2.8328vh 5.6657vh;
+        margin-top: 0.8498vh;
+    }
+
+    #login {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+    }
+
+    #login:hover {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+        background-color: rgb(0, 153, 255);
+    }
+
+    #signup {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+
+        text-decoration: none;
+        margin: 1.4164vh;
+
+    }
+
+    #signup:hover {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+
+        background-color: rgb(0, 153, 255);
+    }
+
+    body {
+        color: white;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    .site-details {
+        /* position: absolute; */
+        margin-top: 12vh;
+        /* border: 2px solid red; */
+
+        padding: 1vh 1vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
+
+        background-color: #24272a;
+        border-radius: 1.5vh;
+    }
+
+    .creator-details {
+        /* position: absolute; */
+        margin-top: 5vh;
+        /* border:2px solid red; */
+
+        width: 95.85vw;
+
+        padding: 1vh 1vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
+
+        background-color: #24272a;
+        border-radius: 1.5vh;
+    }
+
+    h2 {
+        margin-top: 0;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .creator-card {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 50%;
+        /* Set the width to 50% so that they take up equal space on the page */
+        padding: 0vh 1vw;
+    }
+
+    .left {
+        justify-content: flex-start;
+
+        /* Align towards left */
+    }
+
+    .right {
+        justify-content: flex-end;
+        /* Align towards right */
+    }
+
+    .our_photos {
+        width: 150px;
+        /* Increase the image size */
+        height: 150px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    h3 {
+        font-size: 24px;
+        /* Increase the font size */
+    }
+
+    p {
+        font-size: 18px;
+        /* Increase the font size */
+    }
+
+    html {
+        height: 100%;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+
+    .content1 {
+        flex-grow: 1;
+    }
+
+    .footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #008080;
+        color: white;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .footer p {
+        margin: 0;
+    }
+
+    .footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <img class="logo" src="Images/logo.jpg" alt="">
+                <div class="logo_name">MeloSonic</div>
+                <ul class="navbar">
+                    <li>
+                        <a href="homepage.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="artistspage.html">ARTISTS</a>
+                    </li>
+                    <li>
+                        <a href="albumspage.html">ALBUMS</a>
+                    </li>
+                    <li>
+                        <a href="search.html">SEARCH</a>
+                    </li>
+                    <li>
+                        <a href="spotlight.html">SPOTLIGHT</a>
+                    </li>
+                    <li>
+                        <a id="currentpage_in_the_navbar" href="about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="right">
+                <span>
+                    <a id="login" href="http://127.0.0.1:5000/playlist">Playlist</a>
+                </span>
+            </div>
+        </header>
+        <div class="content1">
+            <section class="site-details">
+                <h2>Who are we? </h2>
+                <p>
+                    Melosonic is a website dedicated to music enthusiasts, providing a platform to discover, explore,
+                    and
+                    enjoy a wide range of musical genres and artists. Our site features an extensive collection of music
+                    albums, playlists, and artist biographies. Melosonic can be used as a source of inspiration,
+                    discovery,
+                    and enjoyment for music lovers of all ages and interests.
+                </p>
+            </section>
+            <section class="creator-details">
+                <h2>Creator Details</h2>
+                <div class="creator-card left">
+                    <img class="our_photos" src="Images/am.jpeg" alt="Profile Picture">
+                    <div class="creator-info">
+                        <h3>Aditya Mishra</h3>
+                        <p>Email: aditya.mishra@students.iiit.ac.in</p>
+                        <p>Role: Web Developer</p>
+                    </div>
+                </div>
+                <div class="creator-card right">
+                    <img class="our_photos" src="Images/tc.jpeg" alt="Profile Picture">
+                    <div class="creator-info">
+                        <h3>Tejas Cavale</h3>
+                        <p>Email: tejas.cavale@students.iiit.ac.in</p>
+                        <p>Role: Web Developer</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="footer">
+            <a href="about.html">About Us</a>
+            <p>&copy; 2023</span> Melosonic. All rights reserved. No part of this website may be reproduced,
+                distributed, or
+                transmitted in any form or by any means, including photocopying, recording, or other electronic or
+                mechanical methods, without the prior written permission of the website owner.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+
+</html>

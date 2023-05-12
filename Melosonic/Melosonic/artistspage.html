@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeloSonic</title>
+    <link rel="shortcut icon" href="Images/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica:wght@500&display=swap" rel="stylesheet">
+    <link rel="precośnnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        box-sizing: border-box;
+        margin: 0vh;
+        padding: 0vh;
+        font-family: 'Finlandica', sans-serif;
+        background-color: rgb(20, 20, 30);
+        overflow-x: hidden;
+        /* margin-right: 1vw; */
+        color: white;
+    }
+
+    /*  
+    body::before {
+        content: '';
+         background: url('https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60') no-repeat center center/cover;
+        background: url('https://images.unsplash.com/photo-1486520299386-6d106b22014b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80') no-repeat center center/cover;
+        background: url('bgpage5.avif') no-repeat center center/cover;
+        
+        background: url('Images/backgnd1.jpg');
+
+
+        opacity: 0.7;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }  */
+
+    header {
+        position: fixed;
+        width: 100vw;
+        z-index: 9999;
+        background-color: black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .logodiv {
+        display: inline-block;
+
+    }
+
+    .logo {
+        margin-top: 0.4249vh;
+        /* border: 2px solid    pink; */
+        box-sizing: content-box;
+        height: 9.3484vh;
+        width: auto;
+        /* filter: invert(100%); */
+        float: left;
+
+    }
+
+    .logo_name {
+        /* border: 2px yellow solid; */
+        font-family: 'Delicious Handrawn', cursive;
+        font-size: 4.2492vh;
+        text-align: center;
+        margin: 1.4164vh;
+        margin-left: 4.2492vh;
+        padding-top: 0.7082vh;
+    }
+
+    nav {
+        display: flex;
+        padding: 0vh;
+        /* border: 2px solid green; */
+        width: 69.8vw;
+        /* float:right; */
+
+
+
+    }
+
+    .navbar {
+        /* border: 2px solid yellow; */
+        margin-left: 14.1643vh;
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        /* padding-bottom:0px; */
+
+    }
+
+    nav ul li {
+        margin: 1.4164vh 0vh;
+        /* margin-top: 12px; */
+        text-align: center;
+        /* line-height: 2; */
+        /* width: 43vw; */
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 2.8328vh 2.6657vh;
+        transition: 0.3s;
+
+    }
+
+    /*     nav ul li a:hover {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        padding: 20px 40px;
+        background-color: rgb(45, 45, 45);
+    } */
+
+    #currentpage_in_the_navbar {
+        border-top: 0.2vh solid rgb(117, 117, 117);
+        border-bottom: 0.2vh solid rgb(117, 117, 117);
+    }
+
+    #right {
+        display: inline-block;
+        /* border: 2px solid yellow; */
+        padding: 2.8328vh 5.6657vh;
+        margin-top: 0.8498vh;
+    }
+
+    #login {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+    }
+
+    #login:hover {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+        background-color: rgb(0, 153, 255);
+    }
+
+    #signup {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+
+        text-decoration: none;
+        margin: 1.4164vh;
+
+    }
+
+    #signup:hover {
+        color: yellow;
+        padding: 1.4164vh;
+        border: 0.2832vh solid rgb(0, 153, 255);
+        border-top-left-radius: 3.5410vh;
+        border-bottom-left-radius: 3.5410vh;
+        border-top-right-radius: 3.5410vh;
+        border-bottom-right-radius: 3.5410vh;
+        text-decoration: none;
+        margin: 1.4164vh;
+
+        background-color: rgb(0, 153, 255);
+    }
+
+    body {
+        color: white;
+        font: 2.2662vh;
+    }
+
+    /* IMPLEMENTATION STARTS HERE */
+
+    #artistspage_toppart {
+        background-color: #24272a;
+        height: 20vh;
+        width: 100vw;
+        display: flex;
+        /* position: absolute; */
+        margin-top: 10.0566vh;
+
+        /* padding-left: 10vw; */
+        align-items: center;
+        justify-content: center;
+
+        line-height: 1.5;
+
+    }
+
+    #artistspage_heading {
+        font-size: 6vh;
+        height: 7vh;
+        width: 30vw;
+        /* border: 2px solid red; */
+        font-family: 'Courier New', Courier, monospace;
+        /* text-decoration: underline; */
+
+    }
+
+    #artistspage_bottompart {
+        /* border: 2px green solid; */
+        /* height: 100vh; */
+        width: 100vw;
+        display: flex;
+
+        /* position: absolute; */
+        margin-top: 5vh;
+    }
+
+    #artistspage_leftpart {
+        /* border: 2px purple solid; */
+        /* background-color: #413e3e; */
+        background-color: #24272a;
+
+        /* flex-basis: 66.67%; */
+        /* height: 30vh; */
+    }
+
+    #ul_artists {
+        list-style: none;
+    }
+
+    .li_for_each_artist {
+        background-color: #24272a;
+        border: 2px #000000 solid;
+        border-radius: 1.5vh;
+        /* padding: 1.5vh 1vw; */
+        list-style: none;
+        margin: 1vh 1vh 1vh 0vh;
+        display: flex;
+        width: 95vw;
+        list-style: none;
+
+        align-items: center;
+        background-color: #eee;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: .25rem;
+        box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+        box-sizing: border-box;
+        color: rgba(0, 0, 0, 0.85);
+        cursor: pointer;
+        display: inline-flex;
+        /* font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif; */
+        font-size: 16px;
+        font-weight: 600;
+        /* justify-content: center; */
+        line-height: 1.25;
+        /* margin: 0; */
+        min-height: 3rem;
+        padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+        position: relative;
+        text-decoration: none;
+        transition: all 250ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: baseline;
+
+    }
+
+    .li_for_each_artist:hover {
+        background-color: #24272a;
+        border: 2px #000000 solid;
+        border-radius: 1.5vh;
+        padding: 1.5vh 1vw;
+        list-style: none;
+        margin: 1vh 1vh 1vh 0vh;
+        display: flex;
+
+        /* color: rgb(220, 220, 220); */
+
+        border-color: rgba(0, 0, 0, 0.15);
+        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+        color: rgba(0, 0, 0, 0.65);
+        transform: translateY(-1px);
+        color: white;
+
+    }
+
+    .li_for_each_artist:active {
+        background-color: #F0F0F1;
+        border-color: rgba(0, 0, 0, 0.15);
+        box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+        color: rgba(0, 0, 0, 0.65);
+        transform: translateY(0);
+    }
+
+    .li_for_each_artist img {
+        height: 15vh;
+        width: auto;
+        margin-right: 1vw;
+    }
+
+    .li_for_each_artist div div {
+        /* border: 2px blue solid; */
+        font-size: 5vh;
+
+    }
+
+    html {
+        height: 100%;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+
+    .content1 {
+        flex-grow: 1;
+    }
+
+    .footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #008080;
+        color: white;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .footer p {
+        margin: 0;
+    }
+
+    .footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <img class="logo" src="Images/logo.jpg" alt="">
+                <div class="logo_name">MeloSonic</div>
+                <ul class="navbar">
+                    <li>
+                        <a href="homepage.html">HOME</a>
+                    </li>
+                    <li>
+                        <a id="currentpage_in_the_navbar" href="artistspage.html">ARTISTS</a>
+                    </li>
+                    <li>
+                        <a href="albumspage.html">ALBUMS</a>
+                    </li>
+                    <li>
+                        <a href="search.html">SEARCH</a>
+                    </li>
+                    <li>
+                        <a href="spotlight.html">SPOTLIGHT</a>
+                    </li>
+                    <li>
+                        <a href="about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="right">
+                <span>
+                    <a id="login" href="http://127.0.0.1:5000/playlist">Playlist</a>
+                </span>
+            </div>
+        </header>
+
+        <section id="artistspage_toppart">
+            <span id="artistspage_heading">TOP ARTISTS</span>
+        </section>
+
+        <section id="artistspage_bottompart">
+            <section id="artistspage_leftpart">
+                <ul id="ul_artists">
+                    <li>
+                        <a href="Artists/artist1_pink_floyd.html" class="li_for_each_artist">
+                            <img src="Images/pinkfloyd.jpeg" alt="img1">
+                            <div>
+                                <div class="artistname">Pink Floyd</div>
+                                Formed in London in 1965 and known for their psychedelic and progressive rock sound,
+                                elaborate live shows, and concept albums, they became one of the most influential bands
+                                of
+                                all time with works like "The Wall" and "The Dark Side of the Moon"
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Artists/artist2_the_beatles.html" class="li_for_each_artist">
+                            <img src="Images/the_beatles.jpg" alt="img1">
+                            <div>
+                                <div class="artistname"> The Beatles </div>
+                                Formed in Liverpool in 1960 and consisting of John Lennon, Paul McCartney, George
+                                Harrison,
+                                and Ringo Starr, they are one of the most influential and commercially successful bands
+                                in
+                                the history of music whose impact on popular culture continues to be felt.
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Artists/artist3_jcole.html" class="li_for_each_artist">
+                            <img src="Images/jcole.jpeg" alt="img1">
+                            <div>
+                                <div class="artistname">J. Cole</div>
+                                Born in Frankfurt, Germany in 1985, he grew up in North Carolina, where he began his
+                                music
+                                career. Cole is known for his introspective and thought-provoking lyrics. With his
+                                storytelling ability and lyrical prowess, he has become one of the most respected and
+                                influential artists in hip hop.
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Artists/artist4_kendrick_lamar.html" class="li_for_each_artist">
+                            <img src="Images/kendrick.jpg" alt="img1">
+                            <div>
+                                <div class="artistname">Kendrick Lamar</div>
+                                Born in Compton, California in 1987, he first gained attention with his mixtapes. Known
+                                for
+                                his socially conscious and politically charged lyrics, Lamar has become one of the most
+                                important and influential figures in hip hop. He is widely regarded as one of the
+                                greatest
+                                rappers of all time, with a lasting impact on the genre.
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Artists/artist5_kanye.html" class="li_for_each_artist">
+                            <img src="Images/kanye.webp" alt="img1">
+                            <div>
+                                <div class="artistname">Kanye West</div>
+                                Born in Atlanta, Georgia in 1977, and raised in Chicago, Illinois, he first gained fame
+                                for
+                                his production work with Jay-Z. Known for his innovative and boundary-pushing music,
+                                West
+                                has released several critically acclaimed albums. Despite controversy and outspoken
+                                behavior, Kanye West remains a hugely influential and respected figure in hip hop and
+                                pop
+                                culture.
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+
+            </section>
+
+        </section>
+
+
+
+        <footer class="footer">
+            <a href="about.html">About Us</a>
+            <p>&copy; 2023</span> Melosonic. All rights reserved. No part of this website may be reproduced,
+                distributed, or
+                transmitted in any form or by any means, including photocopying, recording, or other electronic or
+                mechanical methods, without the prior written permission of the website owner.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
