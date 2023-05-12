@@ -18,6 +18,7 @@ Our website boasts a vast selection of music albums, playlists, and artist biogr
 
 ## Usage
 To use this database, you can start by downloading or cloning the repository from GitHub. Once you have done that, you will need to install any necessary dependencies.
+Run the server.py file to access the server to experience the website.
 
 ## Credits
 MeloSonic was developed by:
